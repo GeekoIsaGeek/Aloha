@@ -1,19 +1,8 @@
 import React, { useRef, useState } from 'react';
 import logo from '../../images/Aloha-logo.svg';
-import { BsSearch } from 'react-icons/bs';
-import {
-	StyledHeader,
-	StyledLogo,
-	StyledSearchbar,
-	StyledCart,
-	StyledLogin,
-	StyledWrapper,
-} from './HeaderStyles';
-
+import SearchBar from './SearchBar';
 import styled from 'styled-components';
-import { RiShoppingCartLine } from 'react-icons/ri';
-import { HiOutlineMenuAlt2 } from 'react-icons/hi';
-import { MdPerson } from 'react-icons/md';
+import Navbar from './Navbar';
 
 const Header = () => {
 	const inputRef = useRef();
@@ -23,33 +12,53 @@ const Header = () => {
 
 		inputRef.current.value = '';
 	};
-	const [active, setActive] = useState(false);
+	const [focused, setFocused] = useState(false);
 
 	return (
 		<StyledHeader>
 			<StyledLogo src={logo} alt='logo' />
-			<StyledSearchbar
-				active={active}
-				onClick={() => setActive(true)}
-				onBlur={() => setActive(false)}
-			>
-				<input type='text' ref={inputRef} placeholder='Search for the desired product' />
-				<button onClick={searchProduct}>
-					<BsSearch />
-				</button>
-			</StyledSearchbar>
-			<StyledWrapper>
-				<StyledLogin>
-					<MdPerson />
-				</StyledLogin>
-				<StyledCart>
-					<RiShoppingCartLine className='cartIcon' />
-					<h5 className='count'>0</h5>
-				</StyledCart>
-				<HiOutlineMenuAlt2 className='hamburgerIcon' />
-			</StyledWrapper>
+			<SearchBar
+				focused={focused}
+				setFocused={setFocused}
+				inputRef={inputRef}
+				searchProduct={searchProduct}
+			/>
+			<Navbar />
 		</StyledHeader>
 	);
 };
 
 export default Header;
+
+const StyledHeader = styled.header`
+	width: 100vw;
+	height: 70px;
+	padding: 10px;
+	background-color: ${({ theme }) => theme.primary};
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	.hamburgerIcon {
+		color: white;
+		font-size: 1.8rem;
+		transition: color 0.25s ease-out;
+		&:hover {
+			cursor: pointer;
+			color: ${({ theme }) => theme.secondary};
+		}
+	}
+	@media (max-width: 420px) {
+		padding: 5px;
+		.hamburgerIcon {
+			font-size: 1.5rem;
+		}
+	}
+`;
+
+const StyledLogo = styled.img`
+	height: inherit;
+	width: 100px;
+	@media (max-width: 420px) {
+		width: 70px;
+	}
+`;

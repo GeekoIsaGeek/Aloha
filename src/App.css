@@ -2,7 +2,9 @@
 .App {
 	text-align: center;
 }
-
+body {
+	overflow-x: hidden;
+}
 * {
 	margin: 0;
 	padding: 0;
