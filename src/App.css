@@ -5,6 +5,10 @@
 body {
 	overflow-x: hidden;
 }
+.swiper-button-next,
+.swiper-button-prev {
+	color: white !important;
+}
 * {
 	margin: 0;
 	padding: 0;
@@ -18,4 +22,14 @@ ul {
 a {
 	text-decoration: none;
 	color: inherit;
+}
+
+@media (max-width: 640px) {
+	:root {
+		--swiper-navigation-size: 25px !important;
+	}
+	.swiper-button-next,
+	.swiper-button-prev {
+		height: 20px !important;
+	}
 }

@@ -34,6 +34,7 @@ const StyledHeader = styled.header`
 	width: 100vw;
 	height: 70px;
 	padding: 10px;
+	/* background-color: black; */
 	background-color: ${({ theme }) => theme.primary};
 	display: flex;
 	justify-content: space-between;
