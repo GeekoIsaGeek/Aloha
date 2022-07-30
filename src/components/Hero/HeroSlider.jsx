@@ -22,8 +22,8 @@ const HeroSlider = () => {
 				delay: 4000,
 				disableOnInteraction: false,
 			}}>
-			{images.map((image) => (
-				<SwiperSlide>
+			{images.map((image, i) => (
+				<SwiperSlide key={i}>
 					<HeroSliderItem image={image}></HeroSliderItem>
 				</SwiperSlide>
 			))}

@@ -2,13 +2,14 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import ProductItem from './ProductItem';
 import { IoIosArrowDown, IoIosArrowUp } from 'react-icons/io';
+import useProductsCtx from '../../Store/ProductsContext';
 
 const Product = () => {
-	const products = [1, 2, 3, 4, 5, 6, 8, 5, 3, 21, 3];
 	const [showFilters, setShowFilters] = useState(false);
 	const [showConditions, setShowConditions] = useState(false);
 	const [filterValue, setFilterValue] = useState('');
 	const [conditionValue, setConditionValue] = useState('');
+	const { products } = useProductsCtx();
 
 	return (
 		<StyledWrapper
@@ -40,8 +41,8 @@ const Product = () => {
 				</div>
 			</StyledFilters>
 			<StyledProducts>
-				{products.map((pr) => {
-					return <ProductItem />;
+				{products.map((pr, i) => {
+					return <ProductItem product={pr} key={i} />;
 				})}
 			</StyledProducts>
 		</StyledWrapper>
@@ -128,4 +129,5 @@ const StyledProducts = styled.div`
 	display: grid;
 	gap: 25px;
 	grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+	align-items: start;
 `;
