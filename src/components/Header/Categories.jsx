@@ -27,7 +27,7 @@ const Categories = ({ setShowNav, showNav }) => {
 export default Categories;
 
 const StyledWrapper = styled.div`
-	position: absolute;
+	position: fixed;
 	top: 0;
 	right: 0;
 	min-height: 100%;

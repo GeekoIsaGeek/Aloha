@@ -1,12 +1,15 @@
 import './App.css';
+import Footer from './components/Footer/Footer';
 import Header from './components/Header/Header';
 import HeroSlider from './components/Hero/HeroSlider';
+import Main from './components/Main/Main';
 
 function App() {
 	return (
 		<div className='App'>
 			<Header />
-			<HeroSlider />
+			<Main />
+			<Footer />
 		</div>
 	);
 }

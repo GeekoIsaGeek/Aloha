@@ -9,7 +9,7 @@ export default HeroSliderItem;
 
 const StyledImage = styled.img`
 	width: 100vw;
-	height: 60vh;
+	height: 70vh;
 	object-fit: cover;
 	@media (max-width: 640px) {
 		height: 40vh;
