@@ -3,24 +3,72 @@ import styled from 'styled-components';
 import ProductItem from './ProductItem';
 import Filters from './Filters';
 
-const Products = ({ products }) => {
-	const [showFilters, setShowFilters] = useState(false);
-	const [showConditions, setShowConditions] = useState(false);
+const Products = (props) => {
+	const [showSortingOptions, setShowSortingOptions] = useState(false);
+	const [showConditionOptions, setShowConditionOptions] = useState(false);
+	const [sortByValue, setSortByValue] = useState('');
+	const [conditionValue, setConditionValue] = useState('');
+	const [products, setProducts] = useState(props.products);
+
+	const sortProducts = () => {
+		// Cloning products to prevent state mutation
+		const copyOfProducts = [...products];
+		switch (sortByValue) {
+			case 'date-newest':
+				copyOfProducts.sort((a, b) => a.date - b.date);
+				break;
+			case 'date-oldest':
+				copyOfProducts.sort((a, b) => b.date - a.date);
+				break;
+			case 'price-highest':
+				copyOfProducts.sort((a, b) => b.price - a.price);
+				break;
+			case 'price-lowest':
+				copyOfProducts.sort((a, b) => a.price - b.price);
+				break;
+			default:
+			//Do nothing because there are no other options
+		}
+		setProducts(copyOfProducts);
+	};
+
+	const filterProductsByCondition = (selectedOption) => {
+		const originalArray = props.products;
+		switch (selectedOption) {
+			case 'any':
+				return originalArray;
+			case 'new':
+				return originalArray.filter((product) => product.condition === 'new');
+			case 'used':
+				return originalArray.filter((product) => product.condition === 'used');
+			default:
+				return originalArray;
+		}
+	};
+	// console.log(filterProductsByCondition());
 
 	return (
 		<StyledWrapper
 			onClick={() => {
-				if (showFilters || showConditions) {
-					setShowFilters(false);
-					setShowConditions(false);
+				if (showSortingOptions || showConditionOptions) {
+					setShowSortingOptions(false);
+					setShowConditionOptions(false);
 				}
 			}}
 		>
 			<Filters
-				showFilters={showFilters}
-				setShowFilters={setShowFilters}
-				showConditions={showConditions}
-				setShowConditions={setShowConditions}
+				showSortingOptions={showSortingOptions}
+				setShowSortingOptions={setShowSortingOptions}
+				showConditionOptions={showConditionOptions}
+				setShowConditionOptions={setShowConditionOptions}
+				sortByValue={sortByValue}
+				setSortByValue={setSortByValue}
+				conditionValue={conditionValue}
+				setConditionValue={setConditionValue}
+				sortProducts={sortProducts}
+				filterProductsByCondition={filterProductsByCondition}
+				setProducts={setProducts}
+				products={products}
 			/>
 			<StyledProducts>
 				{products.length > 0 ? (

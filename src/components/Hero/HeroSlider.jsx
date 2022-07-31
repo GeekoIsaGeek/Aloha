@@ -21,7 +21,8 @@ const HeroSlider = () => {
 			autoplay={{
 				delay: 4000,
 				disableOnInteraction: false,
-			}}>
+			}}
+		>
 			{images.map((image, i) => (
 				<SwiperSlide key={i}>
 					<HeroSliderItem image={image}></HeroSliderItem>

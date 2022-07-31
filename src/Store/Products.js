@@ -10,6 +10,7 @@ const Products = [
 			'https://m.media-amazon.com/images/I/81+QNllRMUL._AC_SL1500_.jpg',
 		],
 		category: 'computer-accessories',
+		condition: 'used',
 		details: [
 			'Designed for everywhere you game, with superior sound, comfort and style on all console gaming platforms, including PS5, PS4, Xbox Series X|S, Xbox One, Nintendo Switch, and mobile',
 			'Widely recognized as the best mic in gaming, the Discord-certified ClearCast microphone delivers studio-quality voice clarity and background noise cancellation',
@@ -24,6 +25,7 @@ const Products = [
 		date: 1659205052245,
 		title: 'Razer DeathAdder Essential Gaming Mouse: 6400 DPI Optical Sensor - 5 Programmable Buttons - Mechanical Switches - Rubber Side Grips - Classic Black',
 		price: 70,
+		condition: 'new',
 		images: [
 			'https://m.media-amazon.com/images/I/8189uwDnMkL._AC_SL1500_.jpg',
 			'https://m.media-amazon.com/images/I/612ydhRz3XS._AC_SL1500_.jpg',
@@ -50,6 +52,7 @@ const Products = [
 			'https://m.media-amazon.com/images/I/715DTFYAi9L._AC_SL1500_.jpg',
 		],
 		category: 'office-furniture',
+		condition: 'new',
 		details: [
 			'HIGH TECH GAMING CHAIR: Upgrade your gaming setup with headrest mounted speakers and a backrest mounted subwoofer that provide high quality audio and real-time vibration for an immersive experience',
 			'COMPATIBLE WITH MOST GAMING SYSTEMS: Conveniently connect to most gaming systems or Bluetooth enabled devices so you can enjoy video games, movies, music, and more',

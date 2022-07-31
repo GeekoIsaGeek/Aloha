@@ -1,30 +1,56 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { IoIosArrowDown, IoIosArrowUp } from 'react-icons/io';
 
-const Filters = ({ showFilters, setShowFilters, showConditions, setShowConditions }) => {
-	const [filterValue, setFilterValue] = useState('');
-	const [conditionValue, setConditionValue] = useState('');
+const Filters = (props) => {
+	const {
+		showSortingOptions,
+		setShowSortingOptions,
+		showConditionOptions,
+		setShowConditionOptions,
+		sortByValue,
+		setSortByValue,
+		conditionValue,
+		setConditionValue,
+		sortProducts,
+		filterProductsByCondition,
+		setProducts,
+	} = props;
+
+	const handleSort = (e) => {
+		const formattedSortByValue = e.target.innerText.trim().split(': ').join('-').toLowerCase();
+		setSortByValue(formattedSortByValue);
+		sortProducts();
+	};
+	const filterProducts = (e) => {
+		const formattedConditionValue = e.target.innerText.toLowerCase();
+		setConditionValue(formattedConditionValue);
+		const filteredProducts = filterProductsByCondition(formattedConditionValue);
+		setProducts(filteredProducts);
+	};
 
 	return (
-		<StyledFilters showConditions={showConditions} showFilters={showFilters}>
-			<div className='condition' onClick={() => setShowConditions(!showConditions)}>
+		<StyledFilters
+			showConditionOptions={showConditionOptions}
+			showSortingOptions={showSortingOptions}
+		>
+			<div className='condition' onClick={() => setShowConditionOptions(!showConditionOptions)}>
 				{conditionValue ? `condition: ${conditionValue}` : 'condition'}
-				{showConditions ? <IoIosArrowUp /> : <IoIosArrowDown />}
+				{showConditionOptions ? <IoIosArrowUp /> : <IoIosArrowDown />}
 				<ul>
-					<li onClick={(e) => setConditionValue(e.target.innerText)}>Any</li>
-					<li onClick={(e) => setConditionValue(e.target.innerText)}>New</li>
-					<li onClick={(e) => setConditionValue(e.target.innerText)}>Used</li>
+					<li onClick={(e) => filterProducts(e)}>Any</li>
+					<li onClick={(e) => filterProducts(e)}>New</li>
+					<li onClick={(e) => filterProducts(e)}>Used</li>
 				</ul>
 			</div>
 
-			<div className='filterBy' onClick={() => setShowFilters(!showFilters)}>
-				{filterValue || 'Filter By'} {showFilters ? <IoIosArrowUp /> : <IoIosArrowDown />}
+			<div className='sortBy' onClick={() => setShowSortingOptions(!showSortingOptions)}>
+				{sortByValue || 'Sort By'} {showSortingOptions ? <IoIosArrowUp /> : <IoIosArrowDown />}
 				<ul>
-					<li onClick={(e) => setFilterValue(e.target.innerText)}>Date: Newest</li>
-					<li onClick={(e) => setFilterValue(e.target.innerText)}>Date: Oldest</li>
-					<li onClick={(e) => setFilterValue(e.target.innerText)}>Price: Highest</li>
-					<li onClick={(e) => setFilterValue(e.target.innerText)}>Price: Lowest</li>
+					<li onClick={(e) => handleSort(e)}>Date: Newest</li>
+					<li onClick={(e) => handleSort(e)}>Date: Oldest</li>
+					<li onClick={(e) => handleSort(e)}>Price: Highest</li>
+					<li onClick={(e) => handleSort(e)}>Price: Lowest</li>
 				</ul>
 			</div>
 		</StyledFilters>
@@ -42,7 +68,7 @@ const StyledFilters = styled.div`
 	align-items: center;
 	font-size: 1rem;
 	font-weight: 500;
-	.filterBy,
+	.sortBy,
 	.condition {
 		box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
 		padding: 5px 15px;
@@ -82,16 +108,16 @@ const StyledFilters = styled.div`
 			}
 		}
 	}
-	.filterBy {
+	.sortBy {
 		ul {
 			bottom: -150px;
-			display: ${({ showFilters }) => (showFilters ? 'flex' : 'none')};
+			display: ${({ showSortingOptions }) => (showSortingOptions ? 'flex' : 'none')};
 		}
 	}
 	.condition {
 		ul {
 			bottom: -118px;
-			display: ${({ showConditions }) => (showConditions ? 'flex' : 'none')};
+			display: ${({ showConditionOptions }) => (showConditionOptions ? 'flex' : 'none')};
 		}
 	}
 `;
