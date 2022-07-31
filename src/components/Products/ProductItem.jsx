@@ -16,7 +16,7 @@ const ProductItem = ({ product }) => {
 			<Link to={`/products/${product.id}`}>
 				<img src={product.images[0]} alt='product' />
 				<h5 className='title'>
-					<span>{title}</span> ...
+					<span>{title}</span>...
 				</h5>
 				<h5 className='price'>${product.price}</h5>
 			</Link>
@@ -41,7 +41,7 @@ const StyledProductItem = styled.div`
 	}
 	img {
 		width: 100%;
-		height: 250px;
+		height: 200px;
 		object-fit: contain;
 		padding-bottom: 20px;
 		border-bottom: 1px solid darkgray;

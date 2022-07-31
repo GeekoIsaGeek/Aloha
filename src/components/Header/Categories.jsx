@@ -4,21 +4,23 @@ import { MdCancel } from 'react-icons/md';
 import { Link } from 'react-router-dom';
 
 const Categories = ({ setShowNav, showNav }) => {
+	const basePath = '/products/categories/';
 	return (
 		<StyledWrapper showNav={showNav} onClick={() => setShowNav(false)}>
 			<StyledList>
 				<MdCancel className='exit' onClick={() => setShowNav(false)} />
-				<Link to='/random'>Computer Accessories</Link>
-				<Link to='/'>Computer Components</Link>
-				<Link to='/'>Computers & Tablets</Link>
-				<Link to='/'>Data Storage</Link>
-				<Link to='/'>Monitors</Link>
-				<Link to='/'>Networking Products</Link>
-				<Link to='/'>Protectors</Link>
-				<Link to='/'>Printers</Link>
-				<Link to='/'>Scanners</Link>
-				<Link to='/'>Servers</Link>
-				<Link to='/'>Tablet Accessories</Link>
+				<Link to={`${basePath}computer-accessories`}>Computer Accessories</Link>
+				<Link to={`${basePath}computer-components`}>Computer Components</Link>
+				<Link to={`${basePath}computers-and-tablets`}>Computers & Tablets</Link>
+				<Link to={`${basePath}data-storage`}>Data Storage</Link>
+				<Link to={`${basePath}monitors`}>Monitors</Link>
+				<Link to={`${basePath}networking-products`}>Networking Products</Link>
+				<Link to={`${basePath}protectors`}>Protectors</Link>
+				<Link to={`${basePath}printers`}>Printers</Link>
+				<Link to={`${basePath}scanners`}>Scanners</Link>
+				<Link to={`${basePath}servers`}>Servers</Link>
+				<Link to={`${basePath}tablet-accessories`}>Tablet Accessories</Link>
+				<Link to={`${basePath}office-furniture`}>Office Furniture</Link>
 			</StyledList>
 		</StyledWrapper>
 	);

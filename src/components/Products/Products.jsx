@@ -2,14 +2,12 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import ProductItem from './ProductItem';
 import { IoIosArrowDown, IoIosArrowUp } from 'react-icons/io';
-import useProductsCtx from '../../Store/ProductsContext';
 
-const Product = () => {
+const Products = ({ products }) => {
 	const [showFilters, setShowFilters] = useState(false);
 	const [showConditions, setShowConditions] = useState(false);
 	const [filterValue, setFilterValue] = useState('');
 	const [conditionValue, setConditionValue] = useState('');
-	const { products } = useProductsCtx();
 
 	return (
 		<StyledWrapper
@@ -41,15 +39,19 @@ const Product = () => {
 				</div>
 			</StyledFilters>
 			<StyledProducts>
-				{products.map((pr, i) => {
-					return <ProductItem product={pr} key={i} />;
-				})}
+				{products.length > 0 ? (
+					products.map((pr, i) => {
+						return <ProductItem product={pr} key={i} />;
+					})
+				) : (
+					<h3>Product not found</h3>
+				)}
 			</StyledProducts>
 		</StyledWrapper>
 	);
 };
 
-export default Product;
+export default Products;
 
 const StyledWrapper = styled.div`
 	background-color: #f0f0f0;
@@ -57,7 +59,7 @@ const StyledWrapper = styled.div`
 	display: flex;
 	flex-direction: column;
 	padding: 0 30px;
-	padding-bottom: 70px;
+	padding-bottom: 90px;
 `;
 
 const StyledFilters = styled.div`
@@ -65,7 +67,7 @@ const StyledFilters = styled.div`
 	text-transform: capitalize;
 	display: flex;
 	gap: 40px;
-	justify-content: end;
+	justify-content: center;
 	align-items: center;
 	font-size: 1rem;
 	font-weight: 500;
@@ -104,7 +106,7 @@ const StyledFilters = styled.div`
 				padding: 5px 20px;
 				text-align: start;
 				&:hover {
-					background-color: #eeaa72;
+					background-color: ${({ theme }) => theme.secondary};
 				}
 			}
 		}
@@ -125,9 +127,14 @@ const StyledFilters = styled.div`
 
 const StyledProducts = styled.div`
 	width: 100%;
-	align-items: end;
 	display: grid;
+	justify-content: center;
 	gap: 25px;
-	grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-	align-items: start;
+	min-height: 40vh;
+	grid-template-columns: repeat(auto-fit, minmax(250px, 300px));
+	h3 {
+		padding-top: 100px;
+		font-weight: 500;
+		font-size: 20px;
+	}
 `;

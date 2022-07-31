@@ -9,6 +9,7 @@ const Products = [
 			'https://m.media-amazon.com/images/I/71PQVJkcNuL._AC_SL1500_.jpg',
 			'https://m.media-amazon.com/images/I/81+QNllRMUL._AC_SL1500_.jpg',
 		],
+		category: 'computer-accessories',
 		details: [
 			'Designed for everywhere you game, with superior sound, comfort and style on all console gaming platforms, including PS5, PS4, Xbox Series X|S, Xbox One, Nintendo Switch, and mobile',
 			'Widely recognized as the best mic in gaming, the Discord-certified ClearCast microphone delivers studio-quality voice clarity and background noise cancellation',
@@ -29,6 +30,7 @@ const Products = [
 			'https://m.media-amazon.com/images/I/61Vbk62PIjS._AC_SL1500_.jpg',
 			'https://m.media-amazon.com/images/I/71VkGcn9VZL._AC_SL1500_.jpg',
 		],
+		category: 'computer-accessories',
 		details: [
 			'The Best-Selling Gaming Peripherals Manufacturer in the US: Source - The NPD Group, Inc. U.S. Retail Tracking Service, Keyboards, Mice, PC Headset/Pc Microphone, Gaming Designed, based on dollar sales, 2017-2021',
 			'High-Precision 6,400 DPI Optical Sensor: Offers on-the-fly sensitivity adjustment through dedicated DPI buttons (reprogrammable) for gaming and creative work',
@@ -47,6 +49,7 @@ const Products = [
 			'https://m.media-amazon.com/images/I/81JgIn5s6eL._AC_SL1500_.jpg',
 			'https://m.media-amazon.com/images/I/715DTFYAi9L._AC_SL1500_.jpg',
 		],
+		category: 'office-furniture',
 		details: [
 			'HIGH TECH GAMING CHAIR: Upgrade your gaming setup with headrest mounted speakers and a backrest mounted subwoofer that provide high quality audio and real-time vibration for an immersive experience',
 			'COMPATIBLE WITH MOST GAMING SYSTEMS: Conveniently connect to most gaming systems or Bluetooth enabled devices so you can enjoy video games, movies, music, and more',
