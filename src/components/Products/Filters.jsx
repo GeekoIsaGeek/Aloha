@@ -20,7 +20,7 @@ const Filters = (props) => {
 	const handleSort = (e) => {
 		const formattedSortByValue = e.target.innerText.trim().split(': ').join('-').toLowerCase();
 		setSortByValue(formattedSortByValue);
-		sortProducts();
+		sortProducts(formattedSortByValue);
 	};
 	const filterProducts = (e) => {
 		const formattedConditionValue = e.target.innerText.toLowerCase();

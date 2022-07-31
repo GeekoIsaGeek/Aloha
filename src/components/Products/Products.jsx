@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import ProductItem from './ProductItem';
 import Filters from './Filters';
@@ -10,10 +10,14 @@ const Products = (props) => {
 	const [conditionValue, setConditionValue] = useState('');
 	const [products, setProducts] = useState(props.products);
 
-	const sortProducts = () => {
-		// Cloning products to prevent state mutation
+	//If client has selected a certain category, has navigated to another route, and props.products have changed, update a local state too to render a relevant product
+	useEffect(() => {
+		setProducts(props.products);
+	}, [props.products]);
+
+	const sortProducts = (selectedOption) => {
 		const copyOfProducts = [...products];
-		switch (sortByValue) {
+		switch (selectedOption) {
 			case 'date-newest':
 				copyOfProducts.sort((a, b) => a.date - b.date);
 				break;
@@ -45,7 +49,6 @@ const Products = (props) => {
 				return originalArray;
 		}
 	};
-	// console.log(filterProductsByCondition());
 
 	return (
 		<StyledWrapper
