@@ -14,14 +14,15 @@ const AuthContextProvider = ({ children }) => {
 	const [currUser, setCurrUser] = useState(null);
 
 	const signUp = async ({ username, email, password }) => {
-		try {
-			const { user } = await createUserWithEmailAndPassword(auth, email, password);
-			updateProfile(user, {
-				displayName: username,
-			});
-		} catch (err) {
-			console.log(err.message);
-		}
+		const { user } = await createUserWithEmailAndPassword(auth, email, password);
+		updateProfile(user, {
+			displayName: username,
+		});
+	};
+
+	const login = ({ email, password }) => signInWithEmailAndPassword(auth, email, password);
+	const logOut = () => {
+		signOut(auth);
 	};
 
 	useEffect(() => {
@@ -34,11 +35,6 @@ const AuthContextProvider = ({ children }) => {
 		});
 		return () => unsubscribe();
 	}, []);
-
-	const login = ({ email, password }) => signInWithEmailAndPassword(auth, email, password);
-	const logOut = () => {
-		signOut(auth);
-	};
 
 	return (
 		<AuthCtx.Provider value={{ signUp, login, logOut, currUser }}>{children}</AuthCtx.Provider>
