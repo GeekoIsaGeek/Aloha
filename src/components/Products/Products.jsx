@@ -95,6 +95,7 @@ const StyledWrapper = styled.div`
 	flex-direction: column;
 	padding: 0 30px;
 	padding-bottom: 90px;
+	min-height: 90vh;
 `;
 
 const StyledProducts = styled.div`

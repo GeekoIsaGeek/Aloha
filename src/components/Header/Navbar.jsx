@@ -3,9 +3,14 @@ import { RiShoppingCartLine, RiMenu5Line } from 'react-icons/ri';
 import { MdPerson } from 'react-icons/md';
 import { useState } from 'react';
 import Categories from './Categories';
+import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../../Store/AuthContext';
 
 const Navbar = () => {
 	const [showNav, setShowNav] = useState(false);
+	const navigate = useNavigate();
+	const { currUser } = useAuth();
+
 	return (
 		<StyledWrapper>
 			<StyledCart>
@@ -13,7 +18,7 @@ const Navbar = () => {
 				<h5 className='count'>0</h5>
 			</StyledCart>
 			<StyledLogin>
-				<MdPerson />
+				<MdPerson onClick={() => (currUser ? navigate('/profile') : navigate('/login'))} />
 			</StyledLogin>
 			<RiMenu5Line className='hamburgerIcon' onClick={() => setShowNav(true)} />
 			<Categories setShowNav={setShowNav} showNav={showNav} />
