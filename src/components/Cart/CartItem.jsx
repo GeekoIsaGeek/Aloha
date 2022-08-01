@@ -27,6 +27,10 @@ const CartItem = ({ data }) => {
 		setSubtotal({ price: subtotal.price + data.price, count: subtotal.count + 1 });
 	};
 
+	const handleDeletion = () => {
+		setCartItems(cartItems.filter((item) => item.id !== data.id));
+	};
+
 	return (
 		<StyledCartItem>
 			<img src={data.img} alt='cart-item' />
@@ -39,7 +43,7 @@ const CartItem = ({ data }) => {
 						<input type='text' value={count} />
 						<StyledPlus onClick={increment}>{<HiOutlinePlusSm />}</StyledPlus>
 					</StyledQuantitiy>
-					<StyledDelete>Delete</StyledDelete>
+					<StyledDelete onClick={handleDeletion}>Delete</StyledDelete>
 				</StyledManageItem>
 			</StyledDetails>
 			<h3>${data.price}</h3>
