@@ -20,7 +20,7 @@ export const ProductsContextProvider = ({ children }) => {
 			totalPrice += item.price * totalCount;
 		});
 
-		setSubtotal({ count: totalCount, price: totalPrice });
+		setSubtotal({ count: totalCount, price: totalPrice.toFixed(2) });
 	}, [cartItems]);
 
 	return (

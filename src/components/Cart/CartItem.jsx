@@ -1,24 +1,32 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import logo from '../../images/Aloha-logo.svg';
 import { HiOutlinePlusSm, HiMinusSm } from 'react-icons/hi';
 import useProductsCtx from '../../Store/ProductsContext';
 
 const CartItem = ({ data }) => {
-	const { subtotal, setSubtotal } = useProductsCtx();
-	const [count, setCount] = useState(subtotal.count);
+	const { subtotal, setSubtotal, cartItems, setCartItems } = useProductsCtx();
+
+	const currProduct = cartItems.find((item) => item.id === data.id);
+	const [count, setCount] = useState(currProduct.quantity);
 
 	const decrement = () => {
-		if (count > 0) {
+		if (count > 1) {
 			setCount(count - 1);
-			setSubtotal({ ...subtotal, count: subtotal.count - 1 });
+			setCartItems(
+				cartItems.map((item) => (item.id === data.id ? { ...item, quantity: count - 1 } : item))
+			);
+			setSubtotal({ price: subtotal.price - data.price, count: subtotal.count - 1 });
 		}
 		return;
 	};
 	const increment = () => {
 		setCount(count + 1);
-		setSubtotal({ ...subtotal, count: subtotal.count + 1 });
+		setCartItems(
+			cartItems.map((item) => (item.id === data.id ? { ...item, quantity: count + 1 } : item))
+		);
+		setSubtotal({ price: subtotal.price + data.price, count: subtotal.count + 1 });
 	};
+
 	return (
 		<StyledCartItem>
 			<img src={data.img} alt='cart-item' />

@@ -13,6 +13,7 @@ const Cart = () => {
 					<CartItem
 						key={i}
 						data={{
+							id: item.id,
 							img: item.img,
 							price: item.price,
 							title: item.title,
