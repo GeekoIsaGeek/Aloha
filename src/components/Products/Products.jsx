@@ -96,6 +96,7 @@ const StyledWrapper = styled.div`
 	padding: 0 30px;
 	padding-bottom: 90px;
 	min-height: 90vh;
+	width: 100vw;
 `;
 
 const StyledProducts = styled.div`

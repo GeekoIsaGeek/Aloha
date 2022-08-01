@@ -4,15 +4,27 @@ import SearchBar from './SearchBar';
 import styled from 'styled-components';
 import Navbar from './Navbar';
 import { useNavigate } from 'react-router-dom';
+import useProductsCtx from '../../Store/ProductsContext';
 
 const Header = () => {
+	const { products, setProducts, allProducts } = useProductsCtx();
 	const inputRef = useRef();
+
 	const searchProduct = () => {
 		const input = inputRef.current.value;
-		console.log(input);
 
-		inputRef.current.value = '';
+		if (!input) {
+			setProducts(allProducts);
+		} else {
+			setProducts(
+				products.filter((product) => {
+					const title = product.title.toLowerCase();
+					return title.includes(input.toLowerCase());
+				})
+			);
+		}
 	};
+
 	const [focused, setFocused] = useState(false);
 	const navigate = useNavigate();
 

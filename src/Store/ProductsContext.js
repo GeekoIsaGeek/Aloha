@@ -6,6 +6,7 @@ const ProductsCtx = createContext();
 
 export const ProductsContextProvider = ({ children }) => {
 	const [cartItems, setCartItems] = useState([]);
+	const [products, setProducts] = useState(Products);
 	const [subtotal, setSubtotal] = useState({
 		count: 0,
 		price: 0,
@@ -25,7 +26,15 @@ export const ProductsContextProvider = ({ children }) => {
 
 	return (
 		<ProductsCtx.Provider
-			value={{ products: Products, subtotal, setSubtotal, cartItems, setCartItems }}
+			value={{
+				products,
+				setProducts,
+				allProducts: Products,
+				subtotal,
+				setSubtotal,
+				cartItems,
+				setCartItems,
+			}}
 		>
 			{children}
 		</ProductsCtx.Provider>

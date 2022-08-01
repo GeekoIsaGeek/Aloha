@@ -5,6 +5,7 @@ import useProductsCtx from '../../Store/ProductsContext';
 
 const Cart = () => {
 	const { subtotal, setSubtotal, cartItems } = useProductsCtx();
+	const itemsCount = subtotal.count;
 	return (
 		<StyledWrapper>
 			<StyledCart>
@@ -23,7 +24,8 @@ const Cart = () => {
 					/>
 				))}
 				<StyledSubtotal>
-					Subtotal ({subtotal.count} item): <span>${subtotal.price}</span>
+					Subtotal ({itemsCount} {itemsCount > 1 ? 'items' : 'item'}):{' '}
+					<span>${subtotal.price}</span>
 				</StyledSubtotal>
 			</StyledCart>
 		</StyledWrapper>

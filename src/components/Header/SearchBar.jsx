@@ -7,8 +7,14 @@ const SearchBar = ({ focused, setFocused, inputRef, searchProduct }) => {
 		<StyledSearchbar
 			focused={focused}
 			onClick={() => setFocused(true)}
-			onBlur={() => setFocused(false)}>
-			<input type='text' ref={inputRef} placeholder='Search for the desired product' />
+			onBlur={() => setFocused(false)}
+		>
+			<input
+				type='text'
+				ref={inputRef}
+				placeholder='Search for the desired product'
+				onChange={searchProduct}
+			/>
 			<button onClick={searchProduct}>
 				<BsSearch />
 			</button>
