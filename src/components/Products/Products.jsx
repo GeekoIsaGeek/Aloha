@@ -10,7 +10,7 @@ const Products = (props) => {
 	const [conditionValue, setConditionValue] = useState('');
 	const [products, setProducts] = useState(props.products);
 
-	//If client has selected a certain category, has navigated to another route, and props.products have changed, update a local state too to render a relevant product
+	//If client has selected a certain category, has navigated to another route, and props.products have changed, update a local state too to render a relevant products
 	useEffect(() => {
 		setProducts(props.products);
 	}, [props.products]);
@@ -79,7 +79,7 @@ const Products = (props) => {
 						return <ProductItem product={pr} key={i} />;
 					})
 				) : (
-					<h3>Product not found</h3>
+					<h3>Products not found</h3>
 				)}
 			</StyledProducts>
 		</StyledWrapper>

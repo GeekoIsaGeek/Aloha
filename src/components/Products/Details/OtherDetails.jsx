@@ -1,7 +1,29 @@
 import React from 'react';
 import styled from 'styled-components';
+import useProductsCtx from '../../../Store/ProductsContext';
 
 const OtherDetails = ({ product }) => {
+	const { cartItems, setCartItems } = useProductsCtx();
+	const addToCart = () => {
+		const cartItem = {
+			id: product.id,
+			quantity: 1,
+			price: product.price,
+			img: product.images[0],
+			title: product.title,
+			condition: product.condition,
+		};
+
+		const existingItem = cartItems.find((item) => item.id === cartItem.id);
+
+		if (existingItem) {
+			const elem = { ...existingItem, quantity: existingItem.quantity + 1 };
+			setCartItems(cartItems.map((item) => (item.id === cartItem.id ? elem : item)));
+		} else {
+			setCartItems([...cartItems, cartItem]);
+		}
+	};
+
 	return (
 		<StyledDetailsWrapper>
 			<h2>{product.title}</h2>
@@ -13,7 +35,7 @@ const OtherDetails = ({ product }) => {
 			</StyledDetails>
 			<StyledPrice>
 				<span>{`$${product.price}`}</span>
-				<button>Add to Cart</button>
+				<button onClick={addToCart}>Add to Cart</button>
 			</StyledPrice>
 		</StyledDetailsWrapper>
 	);

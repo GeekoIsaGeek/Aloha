@@ -4,11 +4,14 @@ import { useAuth } from '../../Store/AuthContext';
 import { useNavigate } from 'react-router-dom';
 import { RiShoppingCartLine, RiLogoutBoxRLine } from 'react-icons/ri';
 import Logo from '../../images/Aloha-logo.svg';
+import { Link } from 'react-router-dom';
+import useProductsCtx from '../../Store/ProductsContext';
 
 const Profile = () => {
 	const { logOut } = useAuth();
 	const { currUser } = useAuth();
 	const navigate = useNavigate();
+	const { subtotal } = useProductsCtx();
 	const dateOptions = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
 	const dateCreated = new Date(currUser.metadata.creationTime).toLocaleDateString(
 		'en-US',
@@ -27,20 +30,22 @@ const Profile = () => {
 				<h1>Welcome back, {currUser.displayName}!</h1>
 				<ul>
 					<li>
-						Currently, you have <span>0</span> items in the cart.
+						Currently, you have <span>{subtotal.count}</span> items in the cart.
 					</li>
 					<li>
 						Registration Date: <span>{dateCreated}</span>
 					</li>
 				</ul>
 				<button>
-					<RiShoppingCartLine />
-					See Cart
+					<Link to='/cart'>
+						<RiShoppingCartLine />
+						See Cart
+					</Link>
 				</button>
 				<StyledLogout onClick={(e) => signOut(e)}>
 					<RiLogoutBoxRLine />
 					Logout
-				</StyledLogout>{' '}
+				</StyledLogout>
 				<StyledLogo src={Logo}></StyledLogo>
 			</StyledProfile>
 		</StyledWrapper>
@@ -77,14 +82,13 @@ const StyledProfile = styled.div`
 		list-style: none;
 		margin: 60px auto;
 
-		border * {
+		* {
 			font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
 				Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 		}
 		li {
 			font-size: 20px;
 			text-align: start;
-
 			span {
 				font-weight: bold;
 			}
@@ -103,8 +107,11 @@ const StyledProfile = styled.div`
 		border: 1px solid gray;
 		border-radius: 5px;
 		min-width: 60%;
-		font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell,
-			'Open Sans', 'Helvetica Neue', sans-serif;
+		&,
+		* {
+			font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
+				Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+		}
 		display: flex;
 		align-items: center;
 		justify-content: center;

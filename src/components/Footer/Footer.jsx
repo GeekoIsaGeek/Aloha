@@ -57,6 +57,9 @@ const StyledNavigation = styled.div`
 		gap: 5px;
 		a {
 			transition: color 0.2s ease-out;
+			font-family: system-ui;
+			font-weight: 400;
+			color: #f0f0f0;
 		}
 		a:hover {
 			color: ${({ theme }) => theme.secondary};

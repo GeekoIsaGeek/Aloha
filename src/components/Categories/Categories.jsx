@@ -9,6 +9,9 @@ const Categories = ({ setShowNav, showNav }) => {
 		<StyledWrapper showNav={showNav} onClick={() => setShowNav(false)}>
 			<StyledList>
 				<MdCancel className='exit' onClick={() => setShowNav(false)} />
+				<Link to={`${basePath}all`}>
+					<span style={{ fontWeight: 'bold' }}>All</span>
+				</Link>
 				<Link to={`${basePath}computer-accessories`}>Computer Accessories</Link>
 				<Link to={`${basePath}computer-components`}>Computer Components</Link>
 				<Link to={`${basePath}computers-and-tablets`}>Computers & Tablets</Link>

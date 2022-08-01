@@ -2,20 +2,25 @@ import styled from 'styled-components';
 import { RiShoppingCartLine, RiMenu5Line } from 'react-icons/ri';
 import { MdPerson } from 'react-icons/md';
 import { useState } from 'react';
-import Categories from './Categories';
+import Categories from '../Categories/Categories';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../Store/AuthContext';
+import useProductsCtx from '../../Store/ProductsContext';
 
 const Navbar = () => {
 	const [showNav, setShowNav] = useState(false);
 	const navigate = useNavigate();
 	const { currUser } = useAuth();
+	const { subtotal } = useProductsCtx();
 
 	return (
 		<StyledWrapper>
 			<StyledCart>
-				<RiShoppingCartLine className='cartIcon' />
-				<h5 className='count'>0</h5>
+				<RiShoppingCartLine
+					className='cartIcon'
+					onClick={() => (currUser ? navigate('/cart') : navigate('/login'))}
+				/>
+				<h5 className='count'>{subtotal.count}</h5>
 			</StyledCart>
 			<StyledLogin>
 				<MdPerson onClick={() => (currUser ? navigate('/profile') : navigate('/login'))} />
