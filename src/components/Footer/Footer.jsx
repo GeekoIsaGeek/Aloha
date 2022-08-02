@@ -45,7 +45,6 @@ const StyledFooter = styled.div`
 
 const StyledNavigation = styled.div`
 	display: flex;
-	color: white;
 	font-weight: 500;
 	padding: 50px 0;
 	text-align: start;
@@ -59,7 +58,7 @@ const StyledNavigation = styled.div`
 			transition: color 0.2s ease-out;
 			font-family: system-ui;
 			font-weight: 400;
-			color: #f0f0f0;
+			color: white;
 		}
 		a:hover {
 			color: ${({ theme }) => theme.secondary};

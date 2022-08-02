@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { HiOutlinePlusSm, HiMinusSm } from 'react-icons/hi';
 import useProductsCtx from '../../Store/ProductsContext';

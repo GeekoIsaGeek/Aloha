@@ -5,12 +5,22 @@ import { useState, useEffect } from 'react';
 const ProductsCtx = createContext();
 
 export const ProductsContextProvider = ({ children }) => {
-	const [cartItems, setCartItems] = useState([]);
+	const initialState = () => {
+		const fetchedCartItems = localStorage.getItem('cartItems');
+		if (!fetchedCartItems) {
+			return [];
+		} else {
+			return JSON.parse(fetchedCartItems);
+		}
+	};
+	const [cartItems, setCartItems] = useState(initialState);
 	const [products, setProducts] = useState(Products);
 	const [subtotal, setSubtotal] = useState({
 		count: 0,
 		price: 0,
 	});
+
+	useEffect(() => localStorage.setItem('cartItems', JSON.stringify(cartItems)), [cartItems]);
 
 	useEffect(() => {
 		let totalPrice = 0,
