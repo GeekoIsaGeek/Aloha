@@ -5,6 +5,9 @@ import { Link } from 'react-router-dom';
 
 const Categories = ({ setShowNav, showNav }) => {
 	const basePath = '/products/categories/';
+
+	document.body.style.overflowY = showNav ? 'hidden' : 'scroll';
+
 	return (
 		<StyledWrapper showNav={showNav} onClick={() => setShowNav(false)}>
 			<StyledList>
