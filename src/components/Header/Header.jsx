@@ -19,7 +19,8 @@ const Header = () => {
 			setProducts(
 				products.filter((product) => {
 					const title = product.title.toLowerCase();
-					return title.includes(input.toLowerCase());
+					const category = product.category.toLowerCase();
+					return title.includes(input.toLowerCase()) || category.includes(input.toLowerCase());
 				})
 			);
 		}

@@ -14,7 +14,7 @@ export const ProductsContextProvider = ({ children }) => {
 		}
 	};
 	const [cartItems, setCartItems] = useState(initialState);
-	const [products, setProducts] = useState(Products);
+	const [products, setProducts] = useState(() => Products.sort((a, b) => a.id - b.id));
 	const [subtotal, setSubtotal] = useState({
 		count: 0,
 		price: 0,

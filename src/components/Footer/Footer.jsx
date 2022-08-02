@@ -11,7 +11,7 @@ const Footer = () => {
 				<ul>
 					<Link to={`${basePath}computer-accessories`}>Computer Accessories</Link>
 					<Link to={`${basePath}computer-components`}>Computer Components</Link>
-					<Link to={`${basePath}computers-and-tablets`}>Computers & Tablets</Link>
+					<Link to={`${basePath}smartphones`}>Smartphones</Link>
 					<Link to={`${basePath}data-storage`}>Data Storage</Link>
 				</ul>
 				<ul>

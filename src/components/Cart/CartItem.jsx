@@ -63,6 +63,7 @@ const StyledCartItem = styled.div`
 	img {
 		height: 150px;
 		width: 150px;
+		padding: 10px;
 		background-color: white;
 		border-radius: 10px;
 		object-fit: contain;
