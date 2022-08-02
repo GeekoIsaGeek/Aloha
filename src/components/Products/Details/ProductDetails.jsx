@@ -50,6 +50,9 @@ const StyledSelectedImage = styled.img`
 		height: 90vh;
 	}
 	@media (max-width: 620px) {
-		height: 320px;
+		width: 100%;
+		height: unset;
+		min-height: 50vh;
+		max-height: 50vh;
 	}
 `;
