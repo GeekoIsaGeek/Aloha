@@ -45,7 +45,12 @@ const StyledWrapper = styled.div`
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	background-color: #e2e2e2;
+	background: #ffafbd;
+	background: -webkit-linear-gradient(to right, #ffc 3a0, #ffafbd);
+	background: linear-gradient(to right, #ffc3a0, #ffafbd);
+	@media (max-width: 640px) {
+		min-height: 80vh;
+	}
 `;
 
 const StyledForm = styled.form`
@@ -65,6 +70,10 @@ const StyledForm = styled.form`
 			background-color: #cacaca;
 		}
 	}
+	@media (max-width: 640px) {
+		padding: 40px;
+		border-radius: 10px;
+	}
 `;
 
 const inputStyles = `
@@ -78,6 +87,12 @@ background-color: #f3f3f3;
 font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell,
     'Open Sans', 'Helvetica Neue', sans-serif;
 box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+
+@media (max-width: 640px){
+	font-size:16px;
+	min-width:250px;
+	padding: 3px 10px;
+}
 `;
 
 const StyledUsernameInput = styled.input`
@@ -95,6 +110,10 @@ const StyledButtons = styled.div`
 	margin-top: 20px;
 	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell,
 		'Open Sans', 'Helvetica Neue', sans-serif;
+	@media (max-width: 640px) {
+		font-size: 14px;
+		margin-top: 15px;
+	}
 `;
 
 const StyledSubmit = styled.button`
@@ -110,5 +129,9 @@ const StyledSubmit = styled.button`
 	&:hover {
 		cursor: pointer;
 		background-color: #3d3d3d;
+	}
+	@media (max-width: 640px) {
+		font-size: 14px;
+		padding: 5px 20px;
 	}
 `;

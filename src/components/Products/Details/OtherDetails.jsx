@@ -65,6 +65,17 @@ const StyledDetailsWrapper = styled.div`
 	article {
 		text-align: start;
 	}
+	@media (max-width: 920px) {
+		order: 3;
+		h2 {
+			font-size: 20px;
+			padding-bottom: 5px;
+		}
+		h3 {
+			margin: 10px 0 7px 0;
+			font-size: 18px;
+		}
+	}
 `;
 
 const StyledDetails = styled.ul`
@@ -78,6 +89,9 @@ const StyledDetails = styled.ul`
 	font-size: 14px;
 	padding-bottom: 20px;
 	border-bottom: solid 1.5px #e4e4e4;
+	@media (max-width: 640px) {
+		font-size: 13px;
+	}
 `;
 
 const StyledPrice = styled.div`
@@ -107,6 +121,18 @@ const StyledPrice = styled.div`
 		&:hover {
 			background-color: #ffbb00;
 			cursor: pointer;
+		}
+	}
+	@media (max-width: 640px) {
+		margin-top: 10px;
+		align-self: center;
+		gap: 30px;
+		span {
+			font-size: 1.3rem;
+		}
+		button {
+			font-size: 13px;
+			border-radius: 5px;
 		}
 	}
 `;

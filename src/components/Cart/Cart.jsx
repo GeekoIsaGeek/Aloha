@@ -4,7 +4,7 @@ import CartItem from './CartItem';
 import useProductsCtx from '../../Store/ProductsContext';
 
 const Cart = () => {
-	const { subtotal, setSubtotal, cartItems } = useProductsCtx();
+	const { subtotal, cartItems } = useProductsCtx();
 	const itemsCount = subtotal.count;
 	return (
 		<StyledWrapper>
@@ -60,6 +60,15 @@ const StyledCart = styled.div`
 		padding-bottom: 10px;
 		text-align: start;
 	}
+	@media (max-width: 640px) {
+		padding: 20px 10px;
+		width: 100%;
+		border-radius: 0;
+		margin: 50px 0;
+		h1 {
+			font-size: 20px;
+		}
+	}
 `;
 
 const StyledSubtotal = styled.h2`
@@ -68,5 +77,8 @@ const StyledSubtotal = styled.h2`
 	padding-top: 10px;
 	span {
 		font-weight: 700;
+	}
+	@media (max-width: 640px) {
+		font-size: 16px;
 	}
 `;

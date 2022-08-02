@@ -38,4 +38,13 @@ const StyledImagesWrapper = styled.div`
 			box-shadow: 0px 0px 5px 1px #ff8800;
 		}
 	}
+	@media (max-width: 920px) {
+		flex-direction: row;
+		justify-content: center;
+		order: 2;
+		gap: 5px;
+		img {
+			border-radius: 5px;
+		}
+	}
 `;

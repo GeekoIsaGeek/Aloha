@@ -120,4 +120,20 @@ const StyledFilters = styled.div`
 			display: ${({ showConditionOptions }) => (showConditionOptions ? 'flex' : 'none')};
 		}
 	}
+	@media (max-width: 640px) {
+		gap: 20px;
+		.condition,
+		.sortBy {
+			font-size: 14px;
+			min-width: 40%;
+		}
+	}
+	@media (max-width: 420px) {
+		gap: 20px;
+		.condition,
+		.sortBy {
+			font-size: 13px;
+			min-width: 50%;
+		}
+	}
 `;

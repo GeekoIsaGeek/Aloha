@@ -32,6 +32,12 @@ const StyledWrapper = styled.div`
 	padding: 50px 30px;
 	display: flex;
 	width: 100vw;
+	@media (max-width: 920px) {
+		flex-direction: column;
+		align-items: center;
+		gap: 20px;
+		padding: 25px;
+	}
 `;
 
 const StyledSelectedImage = styled.img`
@@ -40,4 +46,10 @@ const StyledSelectedImage = styled.img`
 	object-fit: contain;
 	margin-right: 20px;
 	margin-left: 10px;
+	@media (max-width: 920px) {
+		height: 90vh;
+	}
+	@media (max-width: 620px) {
+		height: 320px;
+	}
 `;

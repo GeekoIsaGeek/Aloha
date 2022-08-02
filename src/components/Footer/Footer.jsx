@@ -35,12 +35,18 @@ const Footer = () => {
 export default Footer;
 
 const StyledFooter = styled.div`
-	background-color: ${({ theme }) => theme.primary};
+	background-color: #2c2c2c;
 	width: 100%;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 	flex-direction: column;
+	@media (max-width: 640px) {
+		img {
+			height: 50px;
+			margin-bottom: 10px;
+		}
+	}
 `;
 
 const StyledNavigation = styled.div`
@@ -62,6 +68,15 @@ const StyledNavigation = styled.div`
 		}
 		a:hover {
 			color: ${({ theme }) => theme.secondary};
+		}
+	}
+	@media (max-width: 640px) {
+		gap: 25px;
+		ul {
+			gap: 8px;
+			a {
+				font-size: 14px;
+			}
 		}
 	}
 `;

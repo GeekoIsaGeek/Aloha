@@ -111,4 +111,8 @@ const StyledProducts = styled.div`
 		font-weight: 500;
 		font-size: 20px;
 	}
+	@media (max-width: 640px) {
+		grid-template-columns: repeat(auto-fit, minmax(100px, 250px));
+		min-height: unset;
+	}
 `;

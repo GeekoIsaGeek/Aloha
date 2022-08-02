@@ -34,7 +34,6 @@ const StyledProductItem = styled.div`
 	display: flex;
 	align-items: center;
 	flex-direction: column;
-	overflow: hidden;
 
 	&:hover {
 		cursor: pointer;
@@ -62,6 +61,22 @@ const StyledProductItem = styled.div`
 				text-decoration: underline;
 				cursor: pointer;
 			}
+		}
+	}
+	@media (max-width: 640px) {
+		padding: 20px;
+		img {
+			height: 150px;
+			width: 100%;
+		}
+		.title {
+			margin: 10px;
+			span {
+				font-size: 12px;
+			}
+		}
+		.price {
+			font-size: 1rem;
 		}
 	}
 `;

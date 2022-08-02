@@ -65,6 +65,9 @@ const StyledWrapper = styled.div`
 	background: #ffafbd;
 	background: -webkit-linear-gradient(to right, #ffc 3a0, #ffafbd);
 	background: linear-gradient(to right, #ffc3a0, #ffafbd);
+	@media (max-width: 640px) {
+		min-height: 64vh;
+	}
 `;
 
 const StyledProfile = styled.div`
@@ -127,6 +130,28 @@ const StyledProfile = styled.div`
 			margin-right: 10px;
 		}
 	}
+	@media (max-width: 640px) {
+		width: 90vw;
+		padding: 40px;
+		ul {
+			list-style: disc;
+			margin: 20px 0 30px 10px;
+			li {
+				font-size: 16px;
+			}
+		}
+		h1 {
+			font-size: 28px;
+		}
+		button {
+			font-size: 14px;
+			min-width: 50%;
+			padding: 3px 0;
+			svg {
+				font-size: 12px;
+			}
+		}
+	}
 `;
 const StyledLogout = styled.button`
 	transition: color 0.2s ease-out, background 0.2s ease-out !important;
@@ -143,4 +168,8 @@ const StyledLogo = styled.img`
 	right: 15px;
 	height: 50px;
 	width: 80px;
+	@media (max-width: 640px) {
+		width: 60px;
+		bottom: 0;
+	}
 `;
