@@ -27,10 +27,11 @@ const Profile = () => {
 	return (
 		<StyledWrapper>
 			<StyledProfile>
-				<h1>Welcome back, {currUser.displayName}!</h1>
+				<h1>Hello, {currUser.displayName}!</h1>
 				<ul>
 					<li>
-						Currently, you have <span>{subtotal.count}</span> items in the cart.
+						Currently, you have <span>{subtotal.count}</span>{' '}
+						{subtotal.count > 1 ? 'items' : 'item'} in the cart.
 					</li>
 					<li>
 						Registration Date: <span>{dateCreated}</span>
@@ -98,7 +99,6 @@ const StyledProfile = styled.div`
 		text-transform: capitalize;
 		font-weight: 500;
 		padding: 5px;
-		border-bottom: 1px solid #f0f0f0;
 	}
 	button {
 		border: none;

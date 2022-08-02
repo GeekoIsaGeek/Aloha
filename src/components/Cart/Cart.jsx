@@ -25,7 +25,7 @@ const Cart = () => {
 				))}
 				<StyledSubtotal>
 					Subtotal ({itemsCount} {itemsCount > 1 ? 'items' : 'item'}):{' '}
-					<span>${subtotal.price}</span>
+					<span>${subtotal.price.toFixed(2)}</span>
 				</StyledSubtotal>
 			</StyledCart>
 		</StyledWrapper>
@@ -47,15 +47,16 @@ const StyledCart = styled.div`
 	padding: 50px;
 	border-radius: 10px;
 	background-color: #2a2a2a;
-	color: #e2e2e2;
+	color: white;
 	width: 80%;
+	box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
 	* {
 		font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell,
 			'Open Sans', 'Helvetica Neue', sans-serif;
 	}
 	h1 {
 		font-weight: 500;
-		border-bottom: 2px solid #dadada;
+		border-bottom: 2px solid white;
 		padding-bottom: 10px;
 		text-align: start;
 	}

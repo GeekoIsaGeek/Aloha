@@ -57,7 +57,7 @@ const StyledCartItem = styled.div`
 	display: flex;
 	align-items: start;
 	justify-content: space-between;
-	border-bottom: 2px solid #dadada;
+	border-bottom: 2px solid white;
 	padding: 10px 0;
 	gap: 20px;
 	img {

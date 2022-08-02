@@ -1,9 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
 import useProductsCtx from '../../../Store/ProductsContext';
+import { useNavigate } from 'react-router-dom';
 
 const OtherDetails = ({ product }) => {
 	const { cartItems, setCartItems } = useProductsCtx();
+	const navigate = useNavigate();
+
 	const addToCart = () => {
 		const cartItem = {
 			id: product.id,
@@ -22,6 +25,7 @@ const OtherDetails = ({ product }) => {
 		} else {
 			setCartItems([...cartItems, cartItem]);
 		}
+		navigate('/cart');
 	};
 
 	return (
