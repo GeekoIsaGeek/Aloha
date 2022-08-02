@@ -125,7 +125,13 @@ const StyledFilters = styled.div`
 		.condition,
 		.sortBy {
 			font-size: 14px;
-			min-width: 40%;
+			min-width: 30%;
+		}
+		.sortBy > ul {
+			bottom: -145px;
+		}
+		.condition > ul {
+			bottom: -115px;
 		}
 	}
 	@media (max-width: 420px) {
@@ -134,6 +140,12 @@ const StyledFilters = styled.div`
 		.sortBy {
 			font-size: 13px;
 			min-width: 50%;
+		}
+		.sortBy > ul {
+			bottom: -137px;
+		}
+		.condition > ul {
+			bottom: -108px;
 		}
 	}
 `;
