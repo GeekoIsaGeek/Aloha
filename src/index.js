@@ -9,6 +9,10 @@ import AuthContextProvider from './Store/AuthContext';
 const theme = {
 	primary: '#363636;',
 	secondary: '#fdbe77',
+	cart: {
+		light: '#f9f9f9',
+		dark: '#3c3c3c',
+	},
 };
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

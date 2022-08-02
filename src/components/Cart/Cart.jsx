@@ -46,8 +46,8 @@ const StyledCart = styled.div`
 	margin: 50px;
 	padding: 50px;
 	border-radius: 10px;
-	background-color: #2a2a2a;
-	color: white;
+	background-color: ${({ theme }) => theme.cart.light};
+	color: ${({ theme }) => theme.cart.dark};
 	width: 80%;
 	box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
 	* {
@@ -56,7 +56,7 @@ const StyledCart = styled.div`
 	}
 	h1 {
 		font-weight: 500;
-		border-bottom: 2px solid white;
+		border-bottom: 2px solid ${({ theme }) => theme.cart.dark};
 		padding-bottom: 10px;
 		text-align: start;
 	}

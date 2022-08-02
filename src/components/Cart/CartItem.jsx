@@ -36,7 +36,9 @@ const CartItem = ({ data }) => {
 			<img src={data.img} alt='cart-item' />
 			<StyledDetails>
 				<h2>{data.title}</h2>
-				<h3>Condition: {data.condition}</h3>
+				<h3>
+					Condition: <span style={{ fontWeight: '700' }}>{data.condition}</span>
+				</h3>
 				<StyledManageItem>
 					<StyledQuantitiy>
 						<StyledMinus onClick={decrement}>{<HiMinusSm />}</StyledMinus>
@@ -57,7 +59,7 @@ const StyledCartItem = styled.div`
 	display: flex;
 	align-items: start;
 	justify-content: space-between;
-	border-bottom: 2px solid white;
+	border-bottom: 2px solid ${({ theme }) => theme.cart.dark};
 	padding: 10px 0;
 	gap: 20px;
 	img {
@@ -124,11 +126,11 @@ const StyledDelete = styled.button`
 	border: none;
 	background-color: inherit;
 	color: inherit;
-	font-weight: 500;
+	font-weight: 700;
 	transition: color 0.2s ease-out;
 	&:hover {
 		cursor: pointer;
-		color: ${({ theme }) => theme.secondary};
+		color: orangered;
 	}
 	@media (max-width: 640px) {
 		font-size: 14px;
@@ -146,6 +148,8 @@ const StyledQuantitiy = styled.div`
 		border: none;
 		font-size: 1.2rem;
 		caret-color: transparent;
+		background-color: #303030;
+		color: ${({ theme }) => theme.cart.light};
 		cursor: default;
 		text-align: center;
 		width: 30px;
@@ -164,11 +168,14 @@ const StyledButton = styled.button`
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	background-color: ${({ theme }) => theme.cart.dark};
+	color: ${({ theme }) => theme.cart.light};
 	height: 100%;
 	padding: 5px;
 	cursor: pointer;
-	transition: background 0.25s ease-out;
+	transition: background 0.25s ease-out, color 0.25s ease-out;
 	&:hover {
+		color: black;
 		background-color: ${({ theme }) => theme.secondary};
 	}
 	@media (max-width: 640px) {
@@ -178,10 +185,8 @@ const StyledButton = styled.button`
 `;
 
 const StyledPlus = styled(StyledButton)`
-	border-top-right-radius: 5px;
-	border-bottom-right-radius: 5px;
+	border-radius: 0 0 10px 0;
 `;
 const StyledMinus = styled(StyledButton)`
-	border-top-left-radius: 5px;
-	border-bottom-left-radius: 5px;
+	border-radius: 10px 0 0 0;
 `;
