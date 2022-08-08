@@ -11,7 +11,7 @@
 
 Cart items are stored in localStorage
 
-![Project Image](https://firebasestorage.googleapis.com/v0/b/image-gallery-610ea.appspot.com/o/users%2FGeorge-VCXtOV23v8bv667J0SkSr8OiQmm2%2Fgallery%2Faloha-two.vercel.app_.png?alt=media&token=56f2392d-3b4d-4709-adba-94beb99b1105)
+![Project Image](https://firebasestorage.googleapis.com/v0/b/image-gallery-610ea.appspot.com/o/users%2FGeorge-VCXtOV23v8bv667J0SkSr8OiQmm2%2Fgallery%2Faloha-two.vercel.app_.png?alt=media&token=d87b362d-393c-4f98-9cb6-90e054615513)
 
 
 ### Cart
