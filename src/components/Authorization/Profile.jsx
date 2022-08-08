@@ -131,7 +131,7 @@ const StyledProfile = styled.div`
 		}
 	}
 	@media (max-width: 640px) {
-		width: 90vw;
+		width: 70vw;
 		padding: 40px;
 		ul {
 			list-style: disc;
@@ -151,6 +151,9 @@ const StyledProfile = styled.div`
 				font-size: 12px;
 			}
 		}
+	}
+	@media (max-width: 420px) {
+		width: 90vw;
 	}
 `;
 const StyledLogout = styled.button`

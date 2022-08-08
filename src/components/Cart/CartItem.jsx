@@ -101,7 +101,7 @@ const StyledDetails = styled.div`
 	h3 {
 		font-size: 18px;
 	}
-	@media (max-width: 640px) {
+	@media (max-width: 768px) {
 		h2 {
 			font-size: 14px;
 		}
@@ -115,7 +115,7 @@ const StyledManageItem = styled.div`
 	display: flex;
 	gap: 20px;
 	margin-top: 20px;
-	@media (max-width: 640px) {
+	@media (max-width: 768px) {
 		gap: 25px;
 		margin-top: 10px;
 	}
@@ -132,7 +132,7 @@ const StyledDelete = styled.button`
 		cursor: pointer;
 		color: orangered;
 	}
-	@media (max-width: 640px) {
+	@media (max-width: 768px) {
 		font-size: 14px;
 	}
 `;
@@ -154,7 +154,7 @@ const StyledQuantitiy = styled.div`
 		text-align: center;
 		width: 30px;
 	}
-	@media (max-width: 640px) {
+	@media (max-width: 768px) {
 		input {
 			font-size: 14px;
 			width: 30px;
@@ -178,7 +178,7 @@ const StyledButton = styled.button`
 		color: black;
 		background-color: ${({ theme }) => theme.secondary};
 	}
-	@media (max-width: 640px) {
+	@media (max-width: 768px) {
 		font-size: 12px;
 		padding: 4px;
 	}

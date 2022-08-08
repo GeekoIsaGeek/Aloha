@@ -60,7 +60,7 @@ const StyledCart = styled.div`
 		padding-bottom: 10px;
 		text-align: start;
 	}
-	@media (max-width: 640px) {
+	@media (max-width: 768px) {
 		padding: 20px 10px;
 		width: 100%;
 		border-radius: 0;
@@ -78,7 +78,7 @@ const StyledSubtotal = styled.h2`
 	span {
 		font-weight: 700;
 	}
-	@media (max-width: 640px) {
+	@media (max-width: 768px) {
 		font-size: 16px;
 	}
 `;
