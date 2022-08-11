@@ -1,6 +1,6 @@
 # Aloha
 
-## Aloha is an Amazon-inspired front-end project 
+## Aloha is an Amazon-inspired shopping app
 ### Used Techs/Packages
 - React 
 - React Router
