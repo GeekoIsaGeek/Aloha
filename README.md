@@ -1,7 +1,7 @@
 # Aloha
 
 ## Aloha is an Amazon-inspired shopping app
-### Used Techs/Packages
+### Libraries/Packages used 
 - React 
 - React Router
 - Firebase auth
