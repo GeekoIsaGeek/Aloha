@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef } from 'react';
 import logo from '../../images/Aloha-logo.svg';
 import SearchBar from './SearchBar';
 import styled from 'styled-components';
@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom';
 import useProductsCtx from '../../Store/ProductsContext';
 
 const Header = () => {
-	const { products, setProducts, allProducts } = useProductsCtx();
+	const { setProducts, allProducts } = useProductsCtx();
 	const inputRef = useRef();
 
 	const searchProduct = () => {
@@ -17,7 +17,7 @@ const Header = () => {
 			setProducts(allProducts);
 		} else {
 			setProducts(
-				products.filter((product) => {
+				allProducts.filter((product) => {
 					const title = product.title.toLowerCase();
 					const category = product.category.toLowerCase();
 					return title.includes(input.toLowerCase()) || category.includes(input.toLowerCase());
@@ -26,18 +26,12 @@ const Header = () => {
 		}
 	};
 
-	const [focused, setFocused] = useState(false);
 	const navigate = useNavigate();
 
 	return (
 		<StyledHeader>
 			<StyledLogo src={logo} alt='logo' onClick={() => navigate('/')} />
-			<SearchBar
-				focused={focused}
-				setFocused={setFocused}
-				inputRef={inputRef}
-				searchProduct={searchProduct}
-			/>
+			<SearchBar inputRef={inputRef} searchProduct={searchProduct} />
 			<Navbar />
 		</StyledHeader>
 	);
@@ -49,7 +43,6 @@ const StyledHeader = styled.header`
 	width: 100vw;
 	height: 70px;
 	padding: 10px 20px 10px 10px;
-	/* background-color: black; */
 	background-color: ${({ theme }) => theme.primary};
 	display: flex;
 	justify-content: space-between;

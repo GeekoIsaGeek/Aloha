@@ -1,19 +1,19 @@
 import React from 'react';
 import styled from 'styled-components';
 import { BsSearch } from 'react-icons/bs';
+import { useLocation } from 'react-router-dom';
 
-const SearchBar = ({ focused, setFocused, inputRef, searchProduct }) => {
+const SearchBar = ({ inputRef, searchProduct }) => {
+	const path = useLocation().pathname;
+
 	return (
-		<StyledSearchbar
-			focused={focused}
-			onClick={() => setFocused(true)}
-			onBlur={() => setFocused(false)}
-		>
+		<StyledSearchbar>
 			<input
 				type='text'
 				ref={inputRef}
 				placeholder='Search for the desired product'
 				onChange={searchProduct}
+				disabled={path === '/' || path.includes('/products/categories') ? false : true}
 			/>
 			<button onClick={searchProduct}>
 				<BsSearch />
@@ -29,7 +29,7 @@ const StyledSearchbar = styled.div`
 	width: 70%;
 	margin: 0 20px;
 	border-radius: 5px;
-	outline: ${({ focused }) => (focused ? '3px solid orange' : 'unset')};
+
 	button {
 		font-size: 1.2rem;
 		display: flex;
@@ -50,6 +50,9 @@ const StyledSearchbar = styled.div`
 		border: none;
 		border-top-left-radius: 5px;
 		border-bottom-left-radius: 5px;
+		&:disabled {
+			background-color: #272727ac;
+		}
 	}
 	button:hover {
 		cursor: pointer;
