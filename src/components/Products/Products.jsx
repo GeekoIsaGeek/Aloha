@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import ProductItem from './ProductItem';
 import Filters from './Filters';
+import { motion } from 'framer-motion';
 
 const Products = (props) => {
 	const [showSortingOptions, setShowSortingOptions] = useState(false);
@@ -58,6 +59,9 @@ const Products = (props) => {
 					setShowConditionOptions(false);
 				}
 			}}
+			animate={{ opacity: 1, transition: { duration: 0.7 } }}
+			exit={{ opacity: 0 }}
+			initial={{ opacity: 0 }}
 		>
 			<Filters
 				showSortingOptions={showSortingOptions}
@@ -88,7 +92,7 @@ const Products = (props) => {
 
 export default Products;
 
-const StyledWrapper = styled.div`
+const StyledWrapper = styled(motion.div)`
 	background-color: #f0f0f0;
 	margin-top: -5px;
 	display: flex;

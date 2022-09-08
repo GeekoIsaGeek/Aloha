@@ -5,11 +5,13 @@ import useProductsCtx from '../../../Store/ProductsContext';
 import { Navigate } from 'react-router-dom';
 import AdditionalImages from './AdditionalImages';
 import OtherDetails from './OtherDetails';
+import { motion } from 'framer-motion';
 
 const ProductDetails = () => {
 	const { productId } = useParams();
 	const { products } = useProductsCtx();
 	const product = products.find((pdct) => pdct.id == productId);
+	window.scrollTo(0, 0);
 
 	const [mainImage, setMainImage] = useState(product?.images[0]);
 
@@ -17,10 +19,19 @@ const ProductDetails = () => {
 		return <Navigate to='/' />;
 	} else {
 		return (
-			<StyledWrapper>
+			<StyledWrapper
+				animate={{ opacity: 1, transition: { duration: 0.5 } }}
+				exit={{ opacity: 0 }}
+				initial={{ opacity: 0 }}
+			>
 				<AdditionalImages product={product} setMainImage={setMainImage} />
 				<StyledSelectedImage src={mainImage} />
-				<OtherDetails product={product} />
+				<OtherDetails
+					product={product}
+					animate={{ x: 0, transition: { duration: 2 } }}
+					exit={{ x: '-100%' }}
+					initial={{ x: '100%' }}
+				/>
 			</StyledWrapper>
 		);
 	}
@@ -28,7 +39,7 @@ const ProductDetails = () => {
 
 export default ProductDetails;
 
-const StyledWrapper = styled.div`
+const StyledWrapper = styled(motion.div)`
 	padding: 50px 30px;
 	display: flex;
 	width: 100vw;
@@ -40,7 +51,7 @@ const StyledWrapper = styled.div`
 	}
 `;
 
-const StyledSelectedImage = styled.img`
+const StyledSelectedImage = styled(motion.img)`
 	height: 40vw;
 	min-width: 40vw;
 	object-fit: contain;

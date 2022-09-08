@@ -6,6 +6,7 @@ import { RiShoppingCartLine, RiLogoutBoxRLine } from 'react-icons/ri';
 import Logo from '../../images/Aloha-logo.svg';
 import { Link } from 'react-router-dom';
 import useProductsCtx from '../../Store/ProductsContext';
+import { motion } from 'framer-motion';
 
 const Profile = () => {
 	const { logOut } = useAuth();
@@ -13,10 +14,7 @@ const Profile = () => {
 	const navigate = useNavigate();
 	const { subtotal } = useProductsCtx();
 	const dateOptions = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-	const dateCreated = new Date(currUser.metadata.creationTime).toLocaleDateString(
-		'en-US',
-		dateOptions
-	);
+	const dateCreated = new Date(currUser.metadata.creationTime).toLocaleDateString('en-US', dateOptions);
 
 	const signOut = (e) => {
 		e.preventDefault();
@@ -25,13 +23,16 @@ const Profile = () => {
 	};
 
 	return (
-		<StyledWrapper>
-			<StyledProfile>
+		<StyledWrapper initial='hidden' animate='show'>
+			<StyledProfile
+				animate={{ opacity: 1, x: 0, transition: { duration: 1 } }}
+				exit={{ opacity: 0, x: '100%', transition: { duration: 0.4 } }}
+				initial={{ opacity: 0, x: '-50%', transition: { duration: 1 } }}
+			>
 				<h1>Hello, {currUser.displayName}!</h1>
 				<ul>
 					<li>
-						Currently, you have <span>{subtotal.count}</span>{' '}
-						{subtotal.count > 1 ? 'items' : 'item'} in the cart.
+						Currently, you have <span>{subtotal.count}</span> {subtotal.count > 1 ? 'items' : 'item'} in the cart.
 					</li>
 					<li>
 						Registration Date: <span>{dateCreated}</span>
@@ -55,7 +56,7 @@ const Profile = () => {
 
 export default Profile;
 
-const StyledWrapper = styled.div`
+const StyledWrapper = styled(motion.div)`
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -70,7 +71,7 @@ const StyledWrapper = styled.div`
 	}
 `;
 
-const StyledProfile = styled.div`
+const StyledProfile = styled(motion.div)`
 	padding: 100px;
 	display: flex;
 	justify-content: space-between;
@@ -87,8 +88,8 @@ const StyledProfile = styled.div`
 		margin: 60px auto;
 
 		* {
-			font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
-				Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+			font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans',
+				'Helvetica Neue', sans-serif;
 		}
 		li {
 			font-size: 20px;
@@ -112,8 +113,8 @@ const StyledProfile = styled.div`
 		min-width: 60%;
 		&,
 		* {
-			font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
-				Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+			font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans',
+				'Helvetica Neue', sans-serif;
 		}
 		display: flex;
 		align-items: center;

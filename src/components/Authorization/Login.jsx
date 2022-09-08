@@ -11,7 +11,7 @@ const Login = () => {
 	const navigate = useNavigate();
 
 	if (currUser) {
-		navigate('/');
+		navigate('/profile');
 	}
 
 	const handleLogin = async (e) => {
@@ -108,8 +108,8 @@ const StyledButtons = styled.div`
 	align-items: center;
 	width: 100%;
 	margin-top: 20px;
-	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell,
-		'Open Sans', 'Helvetica Neue', sans-serif;
+	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans',
+		'Helvetica Neue', sans-serif;
 	@media (max-width: 640px) {
 		font-size: 14px;
 		margin-top: 15px;

@@ -2,13 +2,18 @@ import React from 'react';
 import styled from 'styled-components';
 import CartItem from './CartItem';
 import useProductsCtx from '../../Store/ProductsContext';
+import { motion } from 'framer-motion';
 
 const Cart = () => {
 	const { subtotal, cartItems } = useProductsCtx();
 	const itemsCount = subtotal.count;
 	return (
 		<StyledWrapper>
-			<StyledCart>
+			<StyledCart
+				animate={{ opacity: 1, x: 0, transition: { duration: 1 } }}
+				exit={{ opacity: 0, x: '100%', transition: { duration: 0.4 } }}
+				initial={{ opacity: 0, x: '-50%', transition: { duration: 1 } }}
+			>
 				<h1>Shopping Cart</h1>
 				{cartItems.map((item, i) => (
 					<CartItem
@@ -24,8 +29,7 @@ const Cart = () => {
 					/>
 				))}
 				<StyledSubtotal>
-					Subtotal ({itemsCount} {itemsCount > 1 ? 'items' : 'item'}):{' '}
-					<span>${subtotal.price.toFixed(2)}</span>
+					Subtotal ({itemsCount} {itemsCount > 1 ? 'items' : 'item'}): <span>${subtotal.price.toFixed(2)}</span>
 				</StyledSubtotal>
 			</StyledCart>
 		</StyledWrapper>
@@ -42,7 +46,7 @@ const StyledWrapper = styled.div`
 	display: flex;
 	justify-content: center;
 `;
-const StyledCart = styled.div`
+const StyledCart = styled(motion.div)`
 	margin: 50px;
 	padding: 50px;
 	border-radius: 10px;
@@ -51,8 +55,8 @@ const StyledCart = styled.div`
 	width: 80%;
 	box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
 	* {
-		font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell,
-			'Open Sans', 'Helvetica Neue', sans-serif;
+		font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans',
+			'Helvetica Neue', sans-serif;
 	}
 	h1 {
 		font-weight: 500;

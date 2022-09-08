@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { HiOutlinePlusSm, HiMinusSm } from 'react-icons/hi';
 import useProductsCtx from '../../Store/ProductsContext';
+import { motion } from 'framer-motion';
 
 const CartItem = ({ data }) => {
 	const { subtotal, setSubtotal, cartItems, setCartItems } = useProductsCtx();
@@ -12,18 +13,14 @@ const CartItem = ({ data }) => {
 	const decrement = () => {
 		if (count > 1) {
 			setCount(count - 1);
-			setCartItems(
-				cartItems.map((item) => (item.id === data.id ? { ...item, quantity: count - 1 } : item))
-			);
+			setCartItems(cartItems.map((item) => (item.id === data.id ? { ...item, quantity: count - 1 } : item)));
 			setSubtotal({ price: subtotal.price - data.price, count: subtotal.count - 1 });
 		}
 		return;
 	};
 	const increment = () => {
 		setCount(count + 1);
-		setCartItems(
-			cartItems.map((item) => (item.id === data.id ? { ...item, quantity: count + 1 } : item))
-		);
+		setCartItems(cartItems.map((item) => (item.id === data.id ? { ...item, quantity: count + 1 } : item)));
 		setSubtotal({ price: subtotal.price + data.price, count: subtotal.count + 1 });
 	};
 
@@ -55,7 +52,7 @@ const CartItem = ({ data }) => {
 
 export default CartItem;
 
-const StyledCartItem = styled.div`
+const StyledCartItem = styled(motion.div)`
 	display: flex;
 	align-items: start;
 	justify-content: space-between;
