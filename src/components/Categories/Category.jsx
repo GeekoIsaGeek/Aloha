@@ -7,8 +7,7 @@ const Category = () => {
 	const { products } = useProductsCtx();
 	const { category } = useParams();
 
-	const filteredProducts =
-		category === 'all' ? products : products.filter((product) => product.category == category);
+	const filteredProducts = category === 'all' ? products : products.filter((product) => product.category == category);
 
 	return <Products products={filteredProducts} />;
 };

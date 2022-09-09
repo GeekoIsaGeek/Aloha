@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 
 const ProductItem = ({ product }) => {
 	let title = product.title;
@@ -12,7 +13,11 @@ const ProductItem = ({ product }) => {
 	}
 
 	return (
-		<StyledProductItem>
+		<StyledProductItem
+			animate={{ opacity: 1, transition: { duration: 0.5 } }}
+			exit={{ opacity: 0 }}
+			initial={{ opacity: 0 }}
+		>
 			<Link to={`/products/${product.id}`}>
 				<img src={product.images[0]} alt='product' />
 				<h5 className='title'>
@@ -26,7 +31,7 @@ const ProductItem = ({ product }) => {
 
 export default ProductItem;
 
-const StyledProductItem = styled.div`
+const StyledProductItem = styled(motion.div)`
 	background-color: white;
 	padding: 30px;
 	border-radius: 10px;

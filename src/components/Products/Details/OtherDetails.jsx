@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import useProductsCtx from '../../../Store/ProductsContext';
 import { useNavigate } from 'react-router-dom';
+import { motion } from 'framer-motion';
 
 const OtherDetails = ({ product }) => {
 	const { cartItems, setCartItems } = useProductsCtx();
@@ -29,7 +30,11 @@ const OtherDetails = ({ product }) => {
 	};
 
 	return (
-		<StyledDetailsWrapper>
+		<StyledDetailsWrapper
+			animate={{ opacity: 1, x: 0, transition: { duration: 1 } }}
+			exit={{ opacity: 0, x: '100%', transition: { duration: 0.4 } }}
+			initial={{ opacity: 0, x: '50%', transition: { duration: 1 } }}
+		>
 			<h2>{product.title}</h2>
 			<h3>About this item</h3>
 			<StyledDetails>
@@ -47,7 +52,7 @@ const OtherDetails = ({ product }) => {
 
 export default OtherDetails;
 
-const StyledDetailsWrapper = styled.div`
+const StyledDetailsWrapper = styled(motion.div)`
 	display: flex;
 	flex-direction: column;
 	align-items: center;

@@ -1,12 +1,16 @@
 import React from 'react';
 import styled from 'styled-components';
+import { motion } from 'framer-motion';
 
 const AdditionalImages = ({ product, setMainImage }) => {
 	return (
 		<StyledImagesWrapper>
 			{product?.images.map((image, i) => {
 				return (
-					<img
+					<motion.img
+						animate={{ opacity: 1, transition: { duration: 2.5 } }}
+						exit={{ opacity: 0, transition: { duration: 0.1 } }}
+						initial={{ opacity: 0, transition: { duration: 0.1 } }}
 						src={image}
 						alt={`additional-${i}`}
 						key={i}

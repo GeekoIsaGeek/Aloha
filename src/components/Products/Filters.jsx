@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import { IoIosArrowDown, IoIosArrowUp } from 'react-icons/io';
-import { motion } from 'framer-motion';
 
 const Filters = (props) => {
 	const {

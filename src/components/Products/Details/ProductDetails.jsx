@@ -11,7 +11,6 @@ const ProductDetails = () => {
 	const { productId } = useParams();
 	const { products } = useProductsCtx();
 	const product = products.find((pdct) => pdct.id == productId);
-	window.scrollTo(0, 0);
 
 	const [mainImage, setMainImage] = useState(product?.images[0]);
 
@@ -25,12 +24,17 @@ const ProductDetails = () => {
 				initial={{ opacity: 0 }}
 			>
 				<AdditionalImages product={product} setMainImage={setMainImage} />
-				<StyledSelectedImage src={mainImage} />
+				<StyledSelectedImage
+					src={mainImage}
+					animate={{ opacity: 1, x: 0, transition: { duration: 1 } }}
+					exit={{ opacity: 0, x: '-100%', transition: { duration: 0.4 } }}
+					initial={{ opacity: 0, x: '-50%', transition: { duration: 1 } }}
+				/>
 				<OtherDetails
 					product={product}
-					animate={{ x: 0, transition: { duration: 2 } }}
-					exit={{ x: '-100%' }}
-					initial={{ x: '100%' }}
+					animate={{ opacity: 1, x: 0, transition: { duration: 1 } }}
+					exit={{ opacity: 0, x: '100%', transition: { duration: 0.4 } }}
+					initial={{ opacity: 0, x: '-50%', transition: { duration: 1 } }}
 				/>
 			</StyledWrapper>
 		);
@@ -58,7 +62,7 @@ const StyledSelectedImage = styled(motion.img)`
 	margin-right: 20px;
 	margin-left: 10px;
 	@media (max-width: 920px) {
-		height: 90vh;
+		width: 90vw;
 	}
 	@media (max-width: 620px) {
 		width: 100%;
