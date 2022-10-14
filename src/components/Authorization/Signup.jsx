@@ -65,7 +65,7 @@ const StyledForm = styled.form`
 	align-items: center;
 	gap: 10px;
 	padding: 70px;
-	background-color: #ecececd4;
+	background-color: #ececece8;
 	border-radius: 5px;
 	box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
 	a {
