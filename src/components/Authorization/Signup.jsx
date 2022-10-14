@@ -65,7 +65,7 @@ const StyledForm = styled.form`
 	align-items: center;
 	gap: 10px;
 	padding: 70px;
-	background-color: #ececec;
+	background-color: #ecececd4;
 	border-radius: 5px;
 	box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
 	a {
@@ -90,8 +90,8 @@ const StyledInput = styled.input`
 	border: none;
 	min-width: 270px;
 	background-color: #f3f3f3;
-	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell,
-		'Open Sans', 'Helvetica Neue', sans-serif;
+	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans',
+		'Helvetica Neue', sans-serif;
 	box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
 	@media (max-width: 640px) {
 		font-size: 16px;
@@ -110,8 +110,8 @@ const StyledButtons = styled.div`
 	align-items: center;
 	width: 100%;
 	margin-top: 20px;
-	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell,
-		'Open Sans', 'Helvetica Neue', sans-serif;
+	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans',
+		'Helvetica Neue', sans-serif;
 	@media (max-width: 640px) {
 		font-size: 14px;
 		margin-top: 15px;
