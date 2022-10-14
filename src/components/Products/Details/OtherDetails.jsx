@@ -26,7 +26,7 @@ const OtherDetails = ({ product }) => {
 		} else {
 			setCartItems([...cartItems, cartItem]);
 		}
-		navigate('/cart');
+		cartItems === [] && navigate('/cart');
 	};
 
 	return (

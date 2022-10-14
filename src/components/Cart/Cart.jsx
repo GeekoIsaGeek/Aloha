@@ -15,9 +15,9 @@ const Cart = () => {
 				initial={{ opacity: 0, x: '-50%', transition: { duration: 1 } }}
 			>
 				<h1>Shopping Cart</h1>
-				{cartItems.map((item, i) => (
+				{cartItems.map((item) => (
 					<CartItem
-						key={i}
+						key={item.id}
 						data={{
 							id: item.id,
 							img: item.img,
