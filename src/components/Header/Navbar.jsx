@@ -16,10 +16,7 @@ const Navbar = () => {
 	return (
 		<StyledWrapper>
 			<StyledCart>
-				<RiShoppingCartLine
-					className='cartIcon'
-					onClick={() => (currUser ? navigate('/cart') : navigate('/login'))}
-				/>
+				<RiShoppingCartLine className='cartIcon' onClick={() => navigate('/cart')} />
 				<h5 className='count'>{subtotal.count}</h5>
 			</StyledCart>
 			<StyledLogin>
